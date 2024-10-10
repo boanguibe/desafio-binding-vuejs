@@ -1,18 +1,65 @@
 # Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Desafío - Binding de formularios (I)
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Este proyecto es parte de un desafío evaluado del bootcamp en Vue.js, en el cual se validan los conocimientos del **data binding** a través de directivas en Vue.js. La aplicación permite el llenado dinámico de los datos de una tarjeta de crédito, reflejados en tiempo real en la vista.
 
+## Descripción
 
-## Para correr el programa sigue los siguientes paso
+El objetivo de este desafío es crear una aplicación en Vue.js que incluya un formulario para llenar dinámicamente los datos de una tarjeta de crédito. El formulario y el diseño de la tarjeta ya están disponibles en el material de apoyo del desafío, por lo que tu tarea principal será implementar el código Vue.js necesario y realizar las modificaciones requeridas.
 
-1.- descarga la aplicacion
-2.- abre tu visual studio con la aplicacion
-3.- una vez dentro abre un terminal y ejecuta
-npm install 
-Este te instalara las dependecias y el node_module
-4.- ejecuta npm run dev 
-listo!!! puedes probar la aplicacion...  Suerte
+## Requerimientos
 
-Aplicacion desarrollada por Boris Guiñez. Es un desafio evaluado del modulo de Vuejs - bootcamp 
+1. **Enlace bidireccional (v-model)**: Enlazar el valor de los inputs con el estado de manera bidireccional.
+2. **Interpolación**: Interpolar en las etiquetas correspondientes las variables del estado. 
+3. **Estado de la tarjeta**: Crear las variables del estado que almacenen la información de la tarjeta. 
+4. **Binding unidireccional**: Enlazar las rutas de las imágenes utilizando binding unidireccional en el atributo `src`. 
+
+## Código de Ejemplo
+
+```html
+<template>
+    <form>
+        <!-- Inputs del formulario -->
+        <div>
+            <label>Título de la tarjeta: </label>
+            <input v-model="nombreTarjeta" />
+        </div>
+
+        <!-- Más inputs aquí -->
+    </form>
+
+    <!-- Vista dinámica de la tarjeta -->
+    <div class="carnet">
+        <h3> {{ nombreTarjeta }}</h3>
+        <img width="40" :src="chipSrc" alt="" />
+        <!-- Más contenido dinámico aquí -->
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            nombreTarjeta: "",
+            chipSrc: "",
+            numeroTarjeta: "",
+            fechaExpiracion: "",
+            propietario: "",
+            tipoTarjetaSrc: ""    
+        }
+    }
+}
+</script>
+```
+## Pasos para correr el proyecto
+
+1. Descarga la aplicación.
+2. Abre el proyecto en Visual Studio Code.
+3. Abre un terminal y ejecuta el comando npm install para instalar las dependencias y los módulos necesarios.
+4. Ejecuta npm run dev para iniciar el servidor de desarrollo.
+5. ¡Listo! Ahora puedes probar la aplicación y ver el llenado dinámico de la tarjeta.
+
+## Creditos
+Aplicación desarrollada por Boris Guiñez como parte de un desafío del módulo de Vue.js en su bootcamp.
+
